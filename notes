@@ -1,0 +1,10 @@
+
+From the error message it is obvious that the model is expecting image shape with (28,28,1). So try to resize image before feeding it to the model.
+
+file = cv2.imread('17316.png')
+file = cv2.resize(file, (28, 28))
+file = cv2.cvtColor(file, cv2.COLOR_BGR2GRAY)
+file = file.reshape((-1, 28, 28,1))
+
+
+https://www.tensorflow.org/api_docs/python/tf/image/rgb_to_grayscale
